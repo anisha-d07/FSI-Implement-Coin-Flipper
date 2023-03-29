@@ -23,25 +23,29 @@ document.addEventListener('DOMContentLoaded', function () {
             document.querySelector('#penny-image').src= './assets/images/penny-heads.jpg'
             document.querySelector('#message').textContent= 'You flipped heads!'
             document.querySelector('#heads').textContent= headsFlips
-            if (tails == 0 ){
-                return false
-            }else
             document.querySelector('#heads-percent').textContent= Math.round(headsFlips/totalFlips * 100)+ '%'
-            document.querySelector('#tails-percent').textContent= Math.round(tailsFlips/totalFlips * 100)+ '%'
-
+            if (tailsFlips == 0 ){
+                return false
+            }else{
+                document.querySelector('#tails-percent').textContent= Math.round(tailsFlips/totalFlips * 100)+ '%'
+            }
+            
             
         }else{
             //flip tails
             console.log('you flipped tails')
             tailsFlips++
+            totalFlips++
             document.querySelector('#penny-image').src= './assets/images/penny-tails.jpg'
             document.querySelector('#message').textContent= 'You flipped tails!'
             document.querySelector('#tails').textContent= tailsFlips
-            if (heads == 0 ){
-                return false
-            }else
-            document.querySelector('#heads-percent').textContent= Math.round(headsFlips/totalFlips * 100)+ '%'
             document.querySelector('#tails-percent').textContent= Math.round(tailsFlips/totalFlips * 100)+ '%'
+            if (headsFlips == 0 ){
+                return false
+            }else{
+                document.querySelector('#heads-percent').textContent= Math.round(headsFlips/totalFlips * 100)+ '%'
+            }
+           
            
         }
 
@@ -67,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tailsPercent = '0%'
             totalFlips = 0
             document.querySelector('#penny-image').src= './assets/images/penny-tails.jpg'
-            document.querySelector('#message').textContent= 'lets get rolling1!'
+            document.querySelector('#message').textContent= 'lets get rolling!'
             document.querySelector('#heads').textContent= headsFlips
             document.querySelector('#tails').textContent= tailsFlips
             document.querySelector('#heads-percent').textContent= headsPercent
